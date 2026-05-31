@@ -1,0 +1,36 @@
+<!-- Navbar #3 - Transparent to Solid on Scroll -->
+<nav id="navbar-transparent" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#" class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center border border-white/30">
+          <span class="text-white font-bold text-sm">T</span>
+        </div>
+        <span class="text-xl font-bold text-white">TailSections</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#" class="text-sm font-medium text-white/80 hover:text-white transition-colors">Features</a>
+        <a href="#" class="text-sm font-medium text-white/80 hover:text-white transition-colors">Pricing</a>
+        <a href="#" class="text-sm font-medium text-white/80 hover:text-white transition-colors">About</a>
+        <a href="#" class="text-sm font-medium text-white/80 hover:text-white transition-colors">Blog</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-sm font-medium text-white/80 hover:text-white transition-colors">Sign In</a>
+        <a href="#" class="px-5 py-2.5 bg-white text-gray-900 text-sm font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow-lg">Get Started</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<script>
+  // Add this script to make the navbar solid on scroll
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('navbar-transparent');
+    if (window.scrollY > 50) {
+      nav.classList.add('bg-gray-900/95', 'backdrop-blur-lg', 'shadow-lg');
+      nav.classList.remove('bg-transparent');
+    } else {
+      nav.classList.remove('bg-gray-900/95', 'backdrop-blur-lg', 'shadow-lg');
+      nav.classList.add('bg-transparent');
+    }
+  });
+</script>

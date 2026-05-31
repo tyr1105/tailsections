@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TailSections — 40+ Beautiful Tailwind CSS Landing Page Sections</title>
+  <meta name="description" content="40+ beautifully crafted, fully responsive Tailwind CSS sections. Copy, paste, and customize. Build stunning landing pages in minutes.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+  <style>
+    /* Smooth scroll */
+    html { scroll-behavior: smooth; }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 4px; }
+    .dark ::-webkit-scrollbar-track { background: #0f172a; }
+    .dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+    /* Marquee animation */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 30s linear infinite;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Toast animation */
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes slideDown {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(20px); opacity: 0; }
+    }
+    .toast-in { animation: slideUp 0.3s ease-out forwards; }
+    .toast-out { animation: slideDown 0.3s ease-in forwards; }
+  </style>
+</head>
+<body class="bg-white dark:bg-gray-950 transition-colors">
+
+  <!-- ==================== STICKY HEADER ==================== -->
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-gray-950/80 backdrop-blur-xl border-b border-gray-100 dark:border-gray-800 transition-colors">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#top" class="flex items-center gap-2.5">
+          <div class="w-9 h-9 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20">
+            <span class="text-white font-bold text-sm">T</span>
+          </div>
+          <span class="text-xl font-extrabold text-gray-900 dark:text-white">Tail<span class="text-indigo-600 dark:text-indigo-400">Sections</span></span>
+        </a>
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-1">
+          <a href="#sections" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">Sections</a>
+          <a href="#features" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">Features</a>
+          <a href="#pricing" class="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">Pricing</a>
+        </nav>
+        <!-- Right side -->
+        <div class="flex items-center gap-3">
+          <!-- Dark mode toggle -->
+          <button id="darkToggle" class="p-2.5 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all" title="Toggle dark mode">
+            <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+            <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          </button>
+          <a href="https://zeoland.gumroad.com/l/tailsections" target="_blank" class="hidden sm:inline-flex px-5 py-2.5 bg-indigo-600 text-white text-sm font-bold rounded-xl hover:bg-indigo-700 transition-all shadow-lg shadow-indigo-500/25 hover:shadow-xl hover:-translate-y-0.5">
+            Get for $39 →
+          </a>
+          <!-- Mobile menu button -->
+          <button id="mobileMenuBtn" class="md:hidden p-2.5 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-gray-100 dark:border-gray-800">
+      <div class="px-4 py-4 space-y-1">
+        <a href="#sections" class="block px-4 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Sections</a>
+        <a href="#features" class="block px-4 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Features</a>
+        <a href="#pricing" class="block px-4 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg">Pricing</a>
+        <a href="https://zeoland.gumroad.com/l/tailsections" target="_blank" class="block px-4 py-2.5 text-sm font-bold text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950 rounded-lg">Get for $39 →</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SELLING SECTION ==================== -->
+  <section id="top" class="relative overflow-hidden bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500">
+    <!-- Background shapes -->
+    <div class="absolute inset-0">
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+      <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" style="animation-delay:1s;"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl animate-pulse" style="animation-delay:2s;"></div>
+    </div>
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40">
+      <div class="text-center">
+        <div class="inline-flex items-center gap-2 px-4 py-2 mb-8 text-sm font-semibold text-white bg-white/15 backdrop-blur-sm rounded-full border border-white/20">
+          <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          40+ Sections • Dark Mode • Lifetime Updates
+        </div>
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight mb-8">
+          Beautiful Landing Page
+          <br>
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-pink-200 to-indigo-200">Sections for Tailwind CSS</span>
+        </h1>
+        <p class="max-w-2xl mx-auto text-lg sm:text-xl text-white/80 mb-12 leading-relaxed">
+          Stop building from scratch. 40+ production-ready, fully responsive sections. Just copy, paste, and customize. Ship your landing page today.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <a href="https://zeoland.gumroad.com/l/tailsections" target="_blank" class="w-full sm:w-auto px-10 py-4 bg-white text-indigo-600 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all shadow-2xl shadow-black/20 hover:shadow-xl hover:-translate-y-0.5 text-center">
+            Get TailSections — $39
+          </a>
+          <a href="#sections" class="w-full sm:w-auto px-10 py-4 bg-white/10 backdrop-blur-sm text-white font-bold text-lg rounded-xl border border-white/30 hover:bg-white/20 transition-all hover:-translate-y-0.5 text-center">
+            Browse All Sections ↓
+          </a>
+        </div>
+        <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-white/60 text-sm">
+          <span class="flex items-center gap-1.5">✓ No dependencies</span>
+          <span class="flex items-center gap-1.5">✓ Dark mode ready</span>
+          <span class="flex items-center gap-1.5">✓ Fully responsive</span>
+          <span class="flex items-center gap-1.5">✓ Lifetime updates</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FEATURES SECTION ==================== -->
+  <section id="features" class="py-20 bg-white dark:bg-gray-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <span class="text-sm font-semibold text-indigo-600 dark:text-indigo-400 tracking-wide uppercase">Why TailSections</span>
+        <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white">Everything You Need</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-500 dark:text-gray-400">Beautifully designed sections that are easy to customize and perfect for any project.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="group p-8 rounded-2xl bg-gray-50 dark:bg-gray-900 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 border border-transparent hover:border-indigo-100 dark:hover:border-indigo-900/50 transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 bg-indigo-100 dark:bg-indigo-900/50 rounded-xl flex items-center justify-center text-2xl mb-6">🎨</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Pixel Perfect</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Every section is carefully designed with attention to detail. Modern aesthetics that will impress your visitors.</p>
+        </div>
+        <div class="group p-8 rounded-2xl bg-gray-50 dark:bg-gray-900 hover:bg-purple-50 dark:hover:bg-purple-950/30 border border-transparent hover:border-purple-100 dark:hover:border-purple-900/50 transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 bg-purple-100 dark:bg-purple-900/50 rounded-xl flex items-center justify-center text-2xl mb-6">📱</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Fully Responsive</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Looks great on every screen size. From mobile phones to ultrawide monitors, your site will be perfect.</p>
+        </div>
+        <div class="group p-8 rounded-2xl bg-gray-50 dark:bg-gray-900 hover:bg-pink-50 dark:hover:bg-pink-950/30 border border-transparent hover:border-pink-100 dark:hover:border-pink-900/50 transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 bg-pink-100 dark:bg-pink-900/50 rounded-xl flex items-center justify-center text-2xl mb-6">🌙</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Dark Mode</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Every section includes dark mode variants. Toggle between light and dark themes effortlessly.</p>
+        </div>
+        <div class="group p-8 rounded-2xl bg-gray-50 dark:bg-gray-900 hover:bg-green-50 dark:hover:bg-green-950/30 border border-transparent hover:border-green-100 dark:hover:border-green-900/50 transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 bg-green-100 dark:bg-green-900/50 rounded-xl flex items-center justify-center text-2xl mb-6">⚡</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Zero Dependencies</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Pure Tailwind CSS. No JavaScript frameworks or external libraries needed. Just clean HTML.</p>
+        </div>
+        <div class="group p-8 rounded-2xl bg-gray-50 dark:bg-gray-900 hover:bg-yellow-50 dark:hover:bg-yellow-950/30 border border-transparent hover:border-yellow-100 dark:hover:border-yellow-900/50 transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 bg-yellow-100 dark:bg-yellow-900/50 rounded-xl flex items-center justify-center text-2xl mb-6">📋</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Copy & Paste</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Simply copy any section and paste it into your project. No complex setup or configuration needed.</p>
+        </div>
+        <div class="group p-8 rounded-2xl bg-gray-50 dark:bg-gray-900 hover:bg-teal-50 dark:hover:bg-teal-950/30 border border-transparent hover:border-teal-100 dark:hover:border-teal-900/50 transition-all duration-300 hover:-translate-y-1">
+          <div class="w-14 h-14 bg-teal-100 dark:bg-teal-900/50 rounded-xl flex items-center justify-center text-2xl mb-6">🔄</div>
+          <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Lifetime Updates</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed">Buy once, get updates forever. New sections and improvements delivered regularly at no extra cost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION CATEGORIES NAV ==================== -->
+  <section id="sections" class="py-12 bg-gray-50 dark:bg-gray-900 border-y border-gray-200 dark:border-gray-800 sticky top-16 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
+        <span class="text-sm font-bold text-gray-900 dark:text-white whitespace-nowrap">Browse:</span>
+        <a href="#cat-hero" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">🚀 Hero</a>
+        <a href="#cat-navbar" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">🧭 Navbar</a>
+        <a href="#cat-features" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">✨ Features</a>
+        <a href="#cat-stats" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">📊 Stats</a>
+        <a href="#cat-pricing" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">💰 Pricing</a>
+        <a href="#cat-testimonials" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">💬 Testimonials</a>
+        <a href="#cat-faq" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">❓ FAQ</a>
+        <a href="#cat-team" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">👥 Team</a>
+        <a href="#cat-blog" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">📝 Blog</a>
+        <a href="#cat-cta" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">📣 CTA</a>
+        <a href="#cat-contact" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">✉️ Contact</a>
+        <a href="#cat-partners" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">🤝 Partners</a>
+        <a href="#cat-gallery" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">🖼️ Gallery</a>
+        <a href="#cat-footer" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">🦶 Footer</a>
+        <a href="#cat-timeline" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">📅 Timeline</a>
+        <a href="#cat-comparison" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">⚔️ Comparison</a>
+        <a href="#cat-newsletter" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">📬 Newsletter</a>
+        <a href="#cat-how-it-works" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">🔧 How It Works</a>
+        <a href="#cat-download" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">📱 Download</a>
+        <a href="#cat-app-showcase" class="px-4 py-1.5 text-sm font-medium text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-800 rounded-full border border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap">📲 App Showcase</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTIONS SHOWCASE ==================== -->
+  <main id="sections-container">
+    <!-- Sections will be loaded here via JavaScript -->
+  </main>
+
+  <!-- ==================== PRICING CTA SECTION ==================== -->
+  <section id="pricing" class="py-24 bg-gray-950 relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-white/5 backdrop-blur-sm rounded-full border border-white/10">
+        <span class="text-lg">🎉</span>
+        <span class="text-sm text-gray-300 font-medium">Limited Time Offer</span>
+      </div>
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight mb-6">
+        Get All 40+ Sections
+        <br>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-purple-400">for just $39</span>
+      </h2>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+        One-time payment. Lifetime access. Free updates forever. No subscriptions, no hidden fees.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <a href="https://zeoland.gumroad.com/l/tailsections" target="_blank" class="w-full sm:w-auto px-10 py-5 bg-white text-gray-900 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all shadow-2xl hover:-translate-y-1 flex items-center justify-center gap-2">
+          Buy TailSections — $39
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </div>
+      <div class="grid sm:grid-cols-3 gap-6 max-w-lg mx-auto">
+        <div class="text-center">
+          <div class="text-2xl mb-1">🔒</div>
+          <p class="text-sm text-gray-500">Secure Payment</p>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl mb-1">⚡</div>
+          <p class="text-sm text-gray-500">Instant Access</p>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl mb-1">💳</div>
+          <p class="text-sm text-gray-500">30-Day Guarantee</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="bg-gray-900 text-gray-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-2.5">
+          <div class="w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-sm">T</span>
+          </div>
+          <span class="text-lg font-bold text-white">TailSections</span>
+        </div>
+        <div class="flex items-center gap-8">
+          <a href="https://zeoland.gumroad.com/l/tailsections" target="_blank" class="text-sm text-gray-400 hover:text-white transition-colors">Purchase</a>
+          <a href="#sections" class="text-sm text-gray-400 hover:text-white transition-colors">Sections</a>
+          <a href="#features" class="text-sm text-gray-400 hover:text-white transition-colors">Features</a>
+        </div>
+      </div>
+      <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+        © 2025 TailSections. Built with ❤️ and Tailwind CSS. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== TOAST CONTAINER ==================== -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-[100] flex flex-col gap-2"></div>
+
+  <!-- ==================== JAVASCRIPT ==================== -->
+  <script>
+    // Dark mode toggle
+    const darkToggle = document.getElementById('darkToggle');
+    const html = document.documentElement;
+
+    // Check saved preference
+    if (localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      html.classList.add('dark');
+    }
+
+    darkToggle.addEventListener('click', () => {
+      html.classList.toggle('dark');
+      localStorage.setItem('darkMode', html.classList.contains('dark'));
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // Toast notification
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = `toast-in flex items-center gap-3 px-5 py-3 rounded-xl shadow-2xl text-sm font-medium ${
+        type === 'success' ? 'bg-green-600 text-white' : 'bg-red-600 text-white'
+      }`;
+      toast.innerHTML = `<span>${type === 'success' ? '✓' : '✗'}</span> ${message}`;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.classList.remove('toast-in');
+        toast.classList.add('toast-out');
+        setTimeout(() => toast.remove(), 300);
+      }, 2500);
+    }
+
+    // Section data
+    const sections = [
+      { file: 'hero-1.html', name: 'Hero #1', label: 'Centered with Gradient', cat: 'hero' },
+      { file: 'hero-2.html', name: 'Hero #2', label: 'Split Layout', cat: 'hero' },
+      { file: 'hero-3.html', name: 'Hero #3', label: 'Dark Full Screen', cat: 'hero' },
+      { file: 'navbar-1.html', name: 'Navbar #1', label: 'Simple Clean', cat: 'navbar' },
+      { file: 'navbar-2.html', name: 'Navbar #2', label: 'With Dropdown & Dark Toggle', cat: 'navbar' },
+      { file: 'navbar-3.html', name: 'Navbar #3', label: 'Transparent to Solid', cat: 'navbar' },
+      { file: 'features-1.html', name: 'Features #1', label: '3 Column Grid', cat: 'features' },
+      { file: 'features-2.html', name: 'Features #2', label: 'Alternating Left-Right', cat: 'features' },
+      { file: 'features-3.html', name: 'Features #3', label: 'Bento Grid', cat: 'features' },
+      { file: 'stats-1.html', name: 'Stats #1', label: '4 Column', cat: 'stats' },
+      { file: 'stats-2.html', name: 'Stats #2', label: 'Progress Bars', cat: 'stats' },
+      { file: 'pricing-1.html', name: 'Pricing #1', label: '3 Tier Cards', cat: 'pricing' },
+      { file: 'pricing-2.html', name: 'Pricing #2', label: 'Monthly/Yearly Toggle', cat: 'pricing' },
+      { file: 'pricing-3.html', name: 'Pricing #3', label: 'Comparison Table', cat: 'pricing' },
+      { file: 'testimonials-1.html', name: 'Testimonials #1', label: 'Cards Grid', cat: 'testimonials' },
+      { file: 'testimonials-2.html', name: 'Testimonials #2', label: 'Large Featured', cat: 'testimonials' },
+      { file: 'testimonials-3.html', name: 'Testimonials #3', label: 'Marquee/Slider', cat: 'testimonials' },
+      { file: 'faq-1.html', name: 'FAQ #1', label: 'Accordion', cat: 'faq' },
+      { file: 'faq-2.html', name: 'FAQ #2', label: 'Two Column Grid', cat: 'faq' },
+      { file: 'team-1.html', name: 'Team #1', label: 'Grid Cards', cat: 'team' },
+      { file: 'team-2.html', name: 'Team #2', label: 'Hover Reveal Cards', cat: 'team' },
+      { file: 'blog-1.html', name: 'Blog #1', label: '3 Column Cards', cat: 'blog' },
+      { file: 'blog-2.html', name: 'Blog #2', label: 'Featured + Sidebar', cat: 'blog' },
+      { file: 'cta-1.html', name: 'CTA #1', label: 'Gradient Background', cat: 'cta' },
+      { file: 'cta-2.html', name: 'CTA #2', label: 'Split Layout', cat: 'cta' },
+      { file: 'cta-3.html', name: 'CTA #3', label: 'Minimal Bold', cat: 'cta' },
+      { file: 'contact-1.html', name: 'Contact #1', label: 'Form with Map', cat: 'contact' },
+      { file: 'contact-2.html', name: 'Contact #2', label: 'Split Layout', cat: 'contact' },
+      { file: 'partners-1.html', name: 'Partners #1', label: 'Logo Cloud', cat: 'partners' },
+      { file: 'gallery-1.html', name: 'Gallery #1', label: 'Masonry Grid', cat: 'gallery' },
+      { file: 'footer-1.html', name: 'Footer #1', label: '4 Column with Newsletter', cat: 'footer' },
+      { file: 'footer-2.html', name: 'Footer #2', label: 'Minimal with Social', cat: 'footer' },
+      { file: 'footer-3.html', name: 'Footer #3', label: 'Large with Sitemap', cat: 'footer' },
+      { file: 'timeline-1.html', name: 'Timeline #1', label: 'Company Milestones', cat: 'timeline' },
+      { file: 'comparison-1.html', name: 'Comparison #1', label: 'Competitor Comparison', cat: 'comparison' },
+      { file: 'newsletter-1.html', name: 'Newsletter #1', label: 'Email Signup', cat: 'newsletter' },
+      { file: 'how-it-works-1.html', name: 'How It Works #1', label: '3 Step Process', cat: 'how-it-works' },
+      { file: 'how-it-works-2.html', name: 'How It Works #2', label: 'Numbered Cards', cat: 'how-it-works' },
+      { file: 'download-1.html', name: 'Download #1', label: 'App Download', cat: 'download' },
+      { file: 'app-showcase-1.html', name: 'App Showcase #1', label: 'Feature Showcase', cat: 'app-showcase' },
+    ];
+
+    const catEmoji = {
+      'hero': '🚀', 'navbar': '🧭', 'features': '✨', 'stats': '📊', 'pricing': '💰',
+      'testimonials': '💬', 'faq': '❓', 'team': '👥', 'blog': '📝', 'cta': '📣',
+      'contact': '✉️', 'partners': '🤝', 'gallery': '🖼️', 'footer': '🦶', 'timeline': '📅',
+      'comparison': '⚔️', 'newsletter': '📬', 'how-it-works': '🔧', 'download': '📱', 'app-showcase': '📲'
+    };
+
+    // Load sections dynamically
+    const container = document.getElementById('sections-container');
+
+    async function loadSections() {
+      for (const section of sections) {
+        try {
+          const response = await fetch(`sections/${section.file}`);
+          const html = await response.text();
+
+          const wrapper = document.createElement('div');
+          wrapper.id = `section-${section.file.replace('.html', '')}`;
+          wrapper.className = 'relative';
+          wrapper.innerHTML = `
+            <div class="sticky top-32 z-30 -mb-10">
+              <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between">
+                  <a id="cat-${section.cat}" class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-500/25 text-sm font-bold">
+                    <span>${catEmoji[section.cat] || '📦'}</span>
+                    ${section.name} — ${section.label}
+                  </a>
+                  <button onclick="copySection('${section.file}')" class="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 text-sm font-semibold hover:bg-indigo-50 dark:hover:bg-indigo-950/50 hover:text-indigo-600 dark:hover:text-indigo-400 hover:border-indigo-200 dark:hover:border-indigo-800 transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+                    Copy Code
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="pt-14 pb-2">
+              <div class="section-content" data-file="${section.file}">
+                ${html}
+              </div>
+            </div>
+          `;
+          container.appendChild(wrapper);
+        } catch (err) {
+          console.error(`Failed to load ${section.file}:`, err);
+        }
+      }
+    }
+
+    // Copy section code
+    function copySection(filename) {
+      const sectionEl = document.querySelector(`.section-content[data-file="${filename}"]`);
+      if (!sectionEl) return;
+
+      // Get the inner HTML (the actual section element)
+      const sectionHTML = sectionEl.innerHTML.trim();
+
+      navigator.clipboard.writeText(sectionHTML).then(() => {
+        showToast(`Copied ${filename} to clipboard!`);
+      }).catch(() => {
+        // Fallback
+        const textarea = document.createElement('textarea');
+        textarea.value = sectionHTML;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast(`Copied ${filename} to clipboard!`);
+      });
+    }
+
+    // Load all sections
+    loadSections();
+  </script>
+
+</body>
+</html>
